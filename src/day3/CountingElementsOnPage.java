@@ -11,9 +11,9 @@ import java.util.List;
 
 public class CountingElementsOnPage {
     public static void main(String[] args) {
-        System.setProperty( "webdriver.chrome.driver", "D:\\TechnoStudy\\Selenium\\ChromeDriver\\chromedriver.exe" );
+        System.setProperty("webdriver.chrome.driver", "/Users/EsraOzturk/Downloads/chromedriver");
         WebDriver driver = new ChromeDriver();
-        driver.get( "file:///D:/Project/seleniumWorking/src/day3/resources/form.html" );
+        driver.get("file:///Users/EsraOzturk/IdeaProjects/seleniumm/src/day3/resources/form.html");
 
         List<String> list = Arrays.asList( "h1", "h2", "h3", "p", "input", "option", "br", "select" );
         List<String> tagsForTesting = new ArrayList<>( list );

@@ -9,9 +9,9 @@ import java.util.List;
 
 public class SimpleFormTask1Solution {
     public static void main(String[] args) {
-        System.setProperty( "webdriver.chrome.driver", "D:\\TechnoStudy\\Selenium\\ChromeDriver\\chromedriver.exe" );
+        System.setProperty( "webdriver.chrome.driver", "/Users/EsraOzturk/Downloads/chromedriver"  );
         WebDriver driver = new ChromeDriver();
-        driver.get( "https://www.seleniumeasy.com/test/basic-first-form-demo.html" );
+        driver.get( "file:///Users/EsraOzturk/IdeaProjects/seleniumm/src/day3/resources/form.html" );
         WebElement message = driver.findElement( By.id( "user-message" ) );
         String myMessage = "Test string!";
         message.sendKeys( myMessage );

@@ -9,52 +9,59 @@ import org.openqa.selenium.support.ui.Select;
 import java.util.List;
 
 public class ChromeBrowser {
-    public static void main(String[] args) throws InterruptedException {
-        System.setProperty( "webdriver.chrome.driver", "D:\\TechnoStudy\\Selenium\\ChromeDriver\\chromedriver.exe" );
+    public static void main(String[] args) {
+        System.setProperty("webdriver.chrome.driver", "/Users/EsraOzturk/Downloads/chromedriver");
         WebDriver driver = new ChromeDriver();
-        driver.get( "file:///D:/Project/seleniumWorking/src/day3/resources/form.html" );
-        WebElement text = driver.findElement( By.name( "text" ) );
-        text.sendKeys( "This is my text" );
-        WebElement password = driver.findElement( By.name( "password" ) );
-        password.sendKeys( "Password" );
-        WebElement textarea = driver.findElement( By.name( "textarea" ) );
-        textarea.sendKeys( "Some text Area words" );
-        WebElement checkbox = driver.findElement( By.name( "checkbox" ) );
+        driver.get("file:///Users/EsraOzturk/IdeaProjects/seleniumm/src/day3/resources/form.html");
+
+        WebElement element = driver.findElement(By.name("text"));
+        element.sendKeys("This is my text");
+        System.out.println(element.getAttribute("type"));
+        WebElement password = driver.findElement(By.name("password"));
+        password.sendKeys("password");
+        WebElement textarea = driver.findElement(By.name("textarea"));
+        textarea.sendKeys("textarea");
+        WebElement checkbox = driver.findElement(By.name("checkbox"));
         checkbox.click();
-        List<WebElement> radio = driver.findElements( By.name( "radio" ) );
-        WebElement secondElementOfRadio = radio.get( 1 );// [0, 1, 2].click
+        List<WebElement> radio = (List<WebElement>) driver.findElements(By.name("radio"));
+        WebElement secondElementOfRadio = radio.get(1);
+        WebElement thirdElementOfRadio = radio.get(2);
         secondElementOfRadio.click();
+        thirdElementOfRadio.click();
 
-        WebElement select = driver.findElement( By.name( "select" ) );
-        // Select for dropdown
-        Select dropdown = new Select( select );
-//        dropdown.selectByIndex( 1 );
+
+        WebElement select = driver.findElement(By.name("select"));
+        //select for drop down
+        Select dropdown = new Select(select);
+        //(   dropdown.selectByIndex(1);
+
         List<WebElement> options = dropdown.getOptions();
-        for(WebElement element : options) {
-            if(element.getText().equals( "option 4" ))
-                dropdown.selectByVisibleText( "option 4" );
+        for (WebElement element1 : options) {
+            if (element.getText().equals("Option 4"))
+                dropdown.selectByVisibleText("Option 4");
+
+
         }
+        System.out.println(element.getAttribute("value"));
+        System.out.println(password.getAttribute("value"));
+        System.out.println(textarea.getAttribute("value"));
+        System.out.println(secondElementOfRadio.getAttribute("value"));
+        System.out.println(checkbox.getAttribute("value"));
+        System.out.println(select.getAttribute("value"));
 
-        String value1 = text.getAttribute( "value" );
-        String value2 = password.getAttribute( "value" );
-        String value3 = textarea.getAttribute( "value" );
-        String value4 = checkbox.getAttribute( "value" );
-        String value5 = secondElementOfRadio.getAttribute( "value" );
-        String value6 = select.getAttribute( "value" );
-        System.out.println( value1 );
-        System.out.println( value2 );
-        System.out.println( value3 );
-        System.out.println( value4 );
-        System.out.println( value5 );
-        System.out.println( value6 );
 
-        WebElement submitButton = driver.findElement( By.id( "submit" ) );
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println();
+
+
+        WebElement submitButton = driver.findElement(By.id("submit"));
         submitButton.click();
 
-        String currentUrl = driver.getCurrentUrl();
-        System.out.println( currentUrl );
+       String currentUrl1 =driver.getCurrentUrl();
+        System.out.println(currentUrl1);
 
-// close the drive and associated windows
-        driver.quit();
     }
 }
